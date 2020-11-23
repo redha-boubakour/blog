@@ -1,6 +1,10 @@
 <?php
 
-class Database
+namespace App\src\DAO;
+use PDO;
+use Exception;
+
+class DAO
 {
     const DB_HOST = 'mysql:host=localhost:3306;dbname=blog;charset=utf8';
     const DB_USER = 'root';

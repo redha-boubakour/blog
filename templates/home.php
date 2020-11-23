@@ -1,7 +1,9 @@
 <?php
 
-require 'Database.php';
-require 'Article.php';
+require '../src/DAO/DAO.php';
+require '../src/DAO/ArticleDAO.php';
+
+use App\src\DAO\ArticleDAO;
 
 ?>
 
@@ -17,7 +19,7 @@ require 'Article.php';
         <h1>Le blog</h1>
 
         <?php
-            $article = new Article();
+            $article = new ArticleDAO();
             $articles = $article->getArticles();
             foreach ($articles as $article) 
             {
