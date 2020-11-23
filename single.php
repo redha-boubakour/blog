@@ -2,6 +2,7 @@
 
 require 'Database.php';
 require 'Article.php';
+require 'Comment.php';
 
 ?>
 
@@ -34,6 +35,26 @@ require 'Article.php';
         ?>
 
         <a href="./home.php">Retour à l'accueil</a>
+
+        <h3>Les commentaires</h3>
+
+        <?php
+            $comment = new Comment();
+            $comments = $comment->getCommentsFromArticle($_GET['articleId']);
+            foreach ($comments as $comment)
+            {
+        ?>
+
+        <div>
+            <h2><?= htmlspecialchars($comment->pseudo);?></h2>
+            <p><?= htmlspecialchars($comment->content);?></p>
+            <p><?= htmlspecialchars($comment->createdAt);?></p>
+        </div>
+
+        <?php
+            }
+            $comments->closeCursor();
+        ?>
     </div>
 </body>
 </html>
