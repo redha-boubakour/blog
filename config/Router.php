@@ -26,9 +26,12 @@ class Router
             {
                 if ($_GET['route'] === 'article'){
                     $this->frontController->article($_GET['articleId']);
+                } 
+                elseif ($_GET['route'] === 'addArticle') {
+                    $this->backController->addArticle($_POST);
                 }
                 else {
-                    echo 'page inconnue';
+                    $this->errorController->errorNotFound();
                 }
             }
             else {
