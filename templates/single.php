@@ -11,6 +11,11 @@
 
 <a href="../public/index.php">Retour à l'accueil</a>
 
+<div class="actions">
+    <a href="../public/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
+</div>
+<br>
+
 <div id="comments" class="text-left" style="margin-left: 50px">
     <h3>Commentaires</h3>
 

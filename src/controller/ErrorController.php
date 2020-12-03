@@ -8,7 +8,8 @@ class ErrorController extends Controller
     {
         return $this->view->render('error_404');
     }    
-    
+
+
     public function errorServer()
     {
         return $this->view->render('error_500');

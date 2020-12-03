@@ -1,6 +1,7 @@
 <?php
 
 namespace App\config;
+
 use App\src\controller\FrontController;
 use App\src\controller\BackController;
 use App\src\controller\ErrorController;
@@ -24,7 +25,7 @@ class Router
     public function run()
     {
         $route = $this->request->getGet()->get('route');
-        
+
         try {
             if(isset($route))
             {
@@ -33,6 +34,9 @@ class Router
                 } 
                 elseif ($route === 'addArticle') {
                     $this->backController->addArticle($this->request->getPost());
+                }
+                elseif ($route === 'editArticle') {
+                    $this->backController->editArticle($this->request->getPost(), $this->request->getGet()->get('articleId'));
                 }
                 else {
                     $this->errorController->errorNotFound();

@@ -12,5 +12,6 @@
         <input type="text" id="author" name="author"><br><br>
         <input type="submit" value="Envoyer" id="submit" name="submit">
     </form>
+
     <br><a href="../public/index.php">Retour à l'accueil</a>
 </div>
