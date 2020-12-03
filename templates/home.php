@@ -1,6 +1,7 @@
 <?php $this->title = "Accueil"; ?>
 
 <h1>Blog</h1>
+<?= $this->session->show('add_article'); ?><br>
 <a href="../public/index.php?route=addArticle">Nouvel article</a>
 
 <?php
