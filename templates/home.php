@@ -6,6 +6,8 @@
 
 <?= $this->session->show('edit_article'); ?><br>
 
+<?= $this->session->show('delete_article'); ?><br>
+
 <a href="../public/index.php?route=addArticle">Nouvel article</a>
 
 <?php
