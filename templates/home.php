@@ -2,13 +2,12 @@
 
 <h1>Blog</h1>
 
-<?= $this->session->show('add_article'); ?><br>
+<?= $this->session->show('add_article'); ?>
+<?= $this->session->show('edit_article'); ?>
+<?= $this->session->show('delete_article'); ?>
+<?= $this->session->show('add_comment'); ?>
 
-<?= $this->session->show('edit_article'); ?><br>
-
-<?= $this->session->show('delete_article'); ?><br>
-
-<a href="../public/index.php?route=addArticle">Nouvel article</a>
+<br><a href="../public/index.php?route=addArticle">Nouvel article</a>
 
 <?php
     foreach ($articles as $article)

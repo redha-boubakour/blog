@@ -9,7 +9,11 @@ class Validation
         if ($name === 'Article') {
             $articleValidation = new ArticleValidation();
             $errors = $articleValidation->check($data);
-            
+            return $errors;
+
+        } elseif ($name === 'Comment') {
+            $commentValidation = new CommentValidation();
+            $errors = $commentValidation->check($data);
             return $errors;
         }
     }

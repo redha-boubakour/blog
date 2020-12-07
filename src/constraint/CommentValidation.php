@@ -4,10 +4,10 @@ namespace App\src\constraint;
 
 use App\config\Parameter;
 
-class ArticleValidation extends Validation
+class CommentValidation extends Validation
 {
     private $errors = [];
-    private $constraint;
+    private $contraint;
 
     public function __construct()
     {
@@ -24,38 +24,34 @@ class ArticleValidation extends Validation
 
     private function checkField($name, $value)
     {
-        if ($name === 'title') {
-            $error = $this->checkTitle($name, $value);
+        if ($name === 'pseudo') {
+            $error = $this->checkPseudo($name, $value);
             $this->addError($name, $error);
         }
         elseif ($name === 'content') {
             $error = $this->checkContent($name, $value);
             $this->addError($name, $error);
         }
-        elseif ($name === 'author') {
-            $error = $this->checkAuthor($name, $value);
-            $this->addError($name, $error);
-        }
     }
 
     private function addError($name, $error) {
-        if($error) {
+        if ($error) {
             $this->errors += [
                 $name => $error
             ];
         }
     }
 
-    private function checkTitle($name, $value)
+    private function checkPseudo($name, $value)
     {
         if ($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('titre', $value);
+            return $this->constraint->notBlank('pseudo', $value);
         }
         if ($this->constraint->minLength($name, $value, 2)) {
-            return $this->constraint->minLength('titre', $value, 2);
+            return $this->constraint->minLength('pseudo', $value, 2);
         }
         if ($this->constraint->maxLength($name, $value, 255)) {
-            return $this->constraint->maxLength('titre', $value, 255);
+            return $this->constraint->maxLength('pseudo', $value, 255);
         }
     }
 
@@ -66,19 +62,6 @@ class ArticleValidation extends Validation
         }
         if ($this->constraint->minLength($name, $value, 2)) {
             return $this->constraint->minLength('contenu', $value, 2);
-        }
-    }
-
-    private function checkAuthor($name, $value)
-    {
-        if ($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('auteur', $value);
-        }
-        if ($this->constraint->minLength($name, $value, 2)) {
-            return $this->constraint->minLength('auteur', $value, 2);
-        }
-        if ($this->constraint->maxLength($name, $value, 255)) {
-            return $this->constraint->maxLength('auteur', $value, 255);
         }
     }
 }
