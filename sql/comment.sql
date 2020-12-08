@@ -26,3 +26,5 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 ALTER TABLE `comment`
 ADD CONSTRAINT `fk_article_id` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`);
+
+ALTER TABLE `comment` ADD `flag` BOOLEAN NOT NULL AFTER `createdAt`;
