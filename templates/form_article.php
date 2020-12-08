@@ -19,5 +19,5 @@ $submit = $route === 'addArticle' ? 'Envoyer' : 'Mettre à jour';
 
     <?= isset($errors['author']) ? $errors['author'] : ''; ?>
     
-    <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
+    <input type="submit" id="submit" name="submit" value="<?= $submit; ?>">
 </form>

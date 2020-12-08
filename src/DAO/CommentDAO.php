@@ -19,7 +19,6 @@ class CommentDAO extends DAO
         return $comment;
     }
 
-
     public function getCommentsFromArticle($articleId)
     {
         $sql = 'SELECT id, pseudo, content, createdAt, flag 

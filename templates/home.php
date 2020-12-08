@@ -8,8 +8,11 @@
 <?= $this->session->show('add_comment'); ?>
 <?= $this->session->show('flag_comment'); ?>
 <?= $this->session->show('delete_comment'); ?>
+<?= $this->session->show('register'); ?>
 
 <br><a href="../public/index.php?route=addArticle">Nouvel article</a>
+<br><a href="../public/index.php?route=register">Inscription</a>
+<br><a href="../public/index.php?route=login">Connexion</a>
 
 <?php
     foreach ($articles as $article)

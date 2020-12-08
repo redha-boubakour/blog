@@ -11,13 +11,11 @@ class View
     private $request;
     private $session;
 
-
     public function __construct()
     {
         $this->request = new Request();
         $this->session = $this->request->getSession();
     }
-
 
     public function render($template, $data = [])
     {
@@ -28,10 +26,8 @@ class View
             'content' => $content,
             'session' => $this->session
         ]);
-
         echo $view;
     }
-
 
     private function renderFile($file, $data)
     {
@@ -39,10 +35,8 @@ class View
             extract($data);
             ob_start();
             require $file;
-
             return ob_get_clean();
         }
-
         header('Location: index.php?route=notFound');
     }
 }
