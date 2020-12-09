@@ -11,6 +11,11 @@ class Session
         $this->session = $session;
     }
 
+    public function start()
+    {
+        session_start();
+    }
+
     public function set($name, $value)
     {
         $_SESSION[$name] = $value;

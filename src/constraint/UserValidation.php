@@ -1,6 +1,7 @@
 <?php
 
 namespace App\src\constraint;
+
 use App\config\Parameter;
 
 class UserValidation extends Validation
@@ -26,8 +27,7 @@ class UserValidation extends Validation
         if($name === 'pseudo') {
             $error = $this->checkPseudo($name, $value);
             $this->addError($name, $error);
-        }
-        elseif ($name === 'password') {
+        } elseif ($name === 'password') {
             $error = $this->checkPassword($name, $value);
             $this->addError($name, $error);
         }
