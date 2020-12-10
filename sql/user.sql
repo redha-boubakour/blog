@@ -6,13 +6,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `user`
-    ADD PRIMARY KEY (`id`);
+ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `user`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `user`
-    ADD COLUMN `role_id` int(11) NOT NULL;
+ADD COLUMN `role_id` int(11) NOT NULL;
 
 ALTER TABLE `user`
-    ADD CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
+ADD CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
