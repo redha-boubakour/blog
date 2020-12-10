@@ -1,7 +1,5 @@
 <?php $this->title = 'Modifier mot de passe'; ?>
 
-<h1>Mon blog</h1>
-
 <div>
     <p>Ce formulaire vous permet de modifier votre mot de passe.</p>
     
@@ -12,4 +10,3 @@
     </form>
 </div>
 <br>
-<a href="../public/index.php">Retour à l'accueil</a>

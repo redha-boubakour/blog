@@ -15,7 +15,6 @@ class CommentDAO extends DAO
         $comment->setContent($row['content']);
         $comment->setCreatedAt($row['createdAt']);
         $comment->setFlag($row['flag']);
-
         return $comment;
     }
 
@@ -29,14 +28,11 @@ class CommentDAO extends DAO
             $articleId
         ]);
         $comments = [];
-
         foreach ($result as $row) {
             $commentId = $row['id'];
             $comments[$commentId] = $this->buildObject($row);
         }
-
         $result->closeCursor();
-
         return $comments;
     }
 
@@ -62,12 +58,39 @@ class CommentDAO extends DAO
             $commentId
         ]);
     }
-
+    public function unflagComment($commentId)
+    {
+        $sql = 'UPDATE comment 
+                SET flag = ? 
+                WHERE id = ?';
+        $this->createQuery($sql, [
+            0, 
+            $commentId
+        ]);
+    }
     public function deleteComment($commentId)
     {
-        $sql = 'DELETE FROM comment WHERE id= ?';
+        $sql = 'DELETE FROM comment 
+                WHERE id = ?';
         $this->createQuery($sql, [
             $commentId
         ]);
+    }
+    public function getFlagComments()
+    {
+        $sql = 'SELECT id, pseudo, content, createdAt, flag 
+                FROM comment 
+                WHERE flag = ? 
+                ORDER BY createdAt DESC';
+        $result = $this->createQuery($sql, [
+            1
+        ]);
+        $comments = [];
+        foreach ($result as $row) {
+            $commentId = $row['id'];
+            $comments[$commentId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $comments;
     }
 }

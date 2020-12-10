@@ -40,7 +40,9 @@ class ArticleDAO extends DAO
                 FROM article INNER JOIN user 
                 ON article.user_id = user.id 
                 WHERE article.id = ?';
-        $result = $this->createQuery($sql, [$articleId]);
+        $result = $this->createQuery($sql, [
+            $articleId
+        ]);
         $article = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($article);
@@ -73,9 +75,15 @@ class ArticleDAO extends DAO
 
     public function deleteArticle($articleId)
     {
-        $sql = 'DELETE FROM comment WHERE article_id = ?';
-        $this->createQuery($sql, [$articleId]);
-        $sql = 'DELETE FROM article WHERE id=?';
-        $this->createQuery($sql, [$articleId]);
+        $sql = 'DELETE FROM comment 
+                WHERE article_id = ?';
+        $this->createQuery($sql, [
+            $articleId
+        ]);
+        $sql = 'DELETE FROM article 
+                WHERE id=?';
+        $this->createQuery($sql, [
+            $articleId
+        ]);
     }
 }

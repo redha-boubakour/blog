@@ -1,7 +1,5 @@
 <?php $this->title = "Inscription"; ?>
 
-<h1>Blog</h1>
-
 <div>
     <form method="post" action="../public/index.php?route=register">
         <label for="pseudo">Pseudo</label><br>
@@ -16,6 +14,4 @@
 
         <br><input type="submit" id="submit" name="submit" value="Inscription">
     </form>
-
-    <br><a href="../public/index.php">Retour à l'accueil</a>
 </div>
