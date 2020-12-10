@@ -16,3 +16,12 @@ INSERT INTO `article` (`id`, `title`, `content`, `author`, `createdAt`) VALUES
 ALTER TABLE `article` ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `article` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+ALTER TABLE `article`
+    DROP COLUMN `author`;
+
+ALTER TABLE `article`
+    ADD COLUMN `user_id` int(11) NOT NULL;
+
+ALTER TABLE `article`
+    ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);

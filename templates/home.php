@@ -2,23 +2,25 @@
 
 <h1>Blog</h1>
 
-<?= $this->session->show('add_article'); ?>
-<?= $this->session->show('edit_article'); ?>
-<?= $this->session->show('delete_article'); ?>
 <?= $this->session->show('add_comment'); ?>
 <?= $this->session->show('flag_comment'); ?>
 <?= $this->session->show('delete_comment'); ?>
 <?= $this->session->show('register'); ?>
 <?= $this->session->show('login'); ?>
 <?= $this->session->show('logout'); ?>
+<?= $this->session->show('delete_account'); ?>
 
 <?php
 if ($this->session->get('pseudo')) {
 ?>
     <?= $this->session->get('pseudo'); ?>
     <a href="../public/index.php?route=logout">Déconnexion</a>
+
+    <?php if($this->session->get('role') === 'admin') { ?>
+        <a href="../public/index.php?route=administration">Administration</a>
+    <?php } ?>
+    
     <a href="../public/index.php?route=profile">Profil</a>
-    <a href="../public/index.php?route=addArticle">Nouvel article</a>
 
 <?php
 } else {
