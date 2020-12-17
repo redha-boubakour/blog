@@ -8,9 +8,11 @@ class FrontController extends Controller
 {
     public function home()
     {
-        $articles = $this->articleDAO->getArticles();
+        $pagination = $this->pagination->paginate(5, $this->get->get('page'), $this->articleDAO->total());
+        $articles = $this->articleDAO->getArticles($pagination->getLimit(), $this->pagination->getStart());
         return $this->view->render('home', [
-            'articles' => $articles
+            'articles' => $articles,
+            'pagination' => $pagination
         ]);
     }
 
@@ -29,10 +31,12 @@ class FrontController extends Controller
     {
         if ($this->checkArticleExist($articleId)) {
             $article = $this->articleDAO->getArticle($articleId);
-            $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+            $pagination = $this->pagination->paginate(5, $this->get->get('page'), $this->commentDAO->total($articleId));
+            $comments = $this->commentDAO->getCommentsFromArticle($articleId, $pagination->getLimit(), $pagination->getStart());
             return $this->view->render('single', [
                 'article' => $article,
-                'comments' => $comments
+                'comments' => $comments,
+                'pagination' => $pagination
             ]);
         }
     }

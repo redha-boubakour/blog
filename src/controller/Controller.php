@@ -7,6 +7,7 @@ use App\src\constraint\Validation;
 use App\src\DAO\UserDAO;
 use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
+use App\src\model\Pagination;
 use App\src\model\View;
 
 abstract class Controller
@@ -19,6 +20,7 @@ abstract class Controller
     protected $userDAO;
     protected $articleDAO;
     protected $commentDAO;
+    protected $pagination;
     protected $view;
 
     public function __construct()
@@ -31,6 +33,7 @@ abstract class Controller
         $this->userDAO = new UserDAO();
         $this->articleDAO = new ArticleDAO();
         $this->commentDAO = new CommentDAO();
+        $this->pagination = new Pagination();
         $this->view = new View();
     }
 }

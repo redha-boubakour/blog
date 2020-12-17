@@ -18,26 +18,22 @@ class ArticleDAO extends DAO
         return $article;
     }
 
-    public function checkArticle($articleId)
+    public function total()
     {
-        $sql = 'SELECT COUNT(id) 
-                FROM article 
-                WHERE id = ?';
-        $result = $this->createQuery($sql, [
-            $articleId
-        ]);
-        $isUnique = $result->fetchColumn();
-        if($isUnique) {
-            return true;
-        }
+        $sql = 'SELECT COUNT(*) 
+                FROM article';
+        return $this->createQuery($sql)->fetchColumn();
     }
 
-    public function getArticles()
+    public function getArticles($limit = null, $start = null)
     {
         $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt 
                 FROM article INNER JOIN user 
                 ON article.user_id = user.id 
                 ORDER BY article.id DESC';
+        if ($limit) {
+            $sql .= ' LIMIT ' . $limit . ' OFFSET ' . $start;
+        }
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row) {
@@ -60,6 +56,20 @@ class ArticleDAO extends DAO
         $article = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($article);
+    }
+
+    public function checkArticle($articleId)
+    {
+        $sql = 'SELECT COUNT(id) 
+                FROM article 
+                WHERE id = ?';
+        $result = $this->createQuery($sql, [
+            $articleId
+        ]);
+        $isUnique = $result->fetchColumn();
+        if($isUnique) {
+            return true;
+        }
     }
 
     public function addArticle(Parameter $post, $userId)

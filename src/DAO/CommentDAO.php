@@ -18,13 +18,24 @@ class CommentDAO extends DAO
         return $comment;
     }
 
-    public function getCommentsFromArticle($articleId)
+    public function total($articleId)
+    {
+        $sql = 'SELECT COUNT(*) 
+                FROM comment 
+                WHERE article_id = ?';
+        return $this->createQuery($sql, [$articleId])->fetchColumn();
+    }
+
+    public function getCommentsFromArticle($articleId, $limit = null, $start = null)
     {
         $sql = 'SELECT comment.id, comment.content, comment.createdAt, comment.flag, user.pseudo
                 FROM comment INNER JOIN user
                 ON comment.user_id = user.id
                 WHERE article_id = ?
                 ORDER BY createdAt DESC';
+        if($limit) {
+            $sql .= ' LIMIT ' . $limit . ' OFFSET ' . $start;
+        }
         $result = $this->createQuery($sql, [
             $articleId
         ]);
