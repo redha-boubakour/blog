@@ -14,14 +14,27 @@ class FrontController extends Controller
         ]);
     }
 
+    private function checkArticleExist($articleId)
+    {
+        $articleExist = $this->articleDAO->checkArticle($articleId);
+        if (!$articleExist) {
+            $this->session->set('not_article', 'Article innéxistant.');
+            header('Location: ../public/index.php');
+        } else {
+            return true;
+        }
+    }
+
     public function article($articleId)
     {
-        $article = $this->articleDAO->getArticle($articleId);
-        $comments = $this->commentDAO->getCommentsFromArticle($articleId);
-        return $this->view->render('single', [
-            'article' => $article,
-            'comments' => $comments
-        ]);
+        if ($this->checkArticleExist($articleId)) {
+            $article = $this->articleDAO->getArticle($articleId);
+            $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+            return $this->view->render('single', [
+                'article' => $article,
+                'comments' => $comments
+            ]);
+        }
     }
 
     public function addComment(Parameter $post, $articleId)

@@ -6,6 +6,8 @@
 <?= $this->session->show('login'); ?>
 <?= $this->session->show('logout'); ?>
 <?= $this->session->show('delete_account'); ?>
+<?= $this->session->show('not_article'); ?>
+
 
 <?php
     foreach ($articles as $article)

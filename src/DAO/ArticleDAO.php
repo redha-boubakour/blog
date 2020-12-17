@@ -18,6 +18,20 @@ class ArticleDAO extends DAO
         return $article;
     }
 
+    public function checkArticle($articleId)
+    {
+        $sql = 'SELECT COUNT(id) 
+                FROM article 
+                WHERE id = ?';
+        $result = $this->createQuery($sql, [
+            $articleId
+        ]);
+        $isUnique = $result->fetchColumn();
+        if($isUnique) {
+            return true;
+        }
+    }
+
     public function getArticles()
     {
         $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt 
