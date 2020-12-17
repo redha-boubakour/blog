@@ -77,6 +77,9 @@ class Router
                 elseif($route === 'administration'){
                     $this->backController->administration();
                 }
+                elseif($route === 'search'){
+                    $this->frontController->search($this->request->getPost());
+                }
                 else {
                     $this->errorController->errorNotFound();
                 }

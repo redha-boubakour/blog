@@ -108,4 +108,20 @@ class FrontController extends Controller
         }
         return $this->view->render('login');
     }
+
+    public function search(Parameter $post)
+    {
+        $value = $post->get('search');
+        if (!$value) {
+            $this->session->set('error_search', 'Veuillez renseigner des informations dans la zone de recherche');
+            header('Location: ../public/index.php');
+        }
+        $isArticle = $post->get('articles');
+        $articles = [];
+        $articles = $this->articleDAO->search($value);
+        return $this->view->render('search', [
+            'value' => $value,
+            'articles' => $articles
+        ]);
+    }
 }

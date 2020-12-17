@@ -9,31 +9,29 @@
     <h1>Blog</h1>
 
     <div>
-        <?php
-        if ($this->session->get('pseudo')) {
-        ?>
-            <?= $this->session->get('pseudo'); ?>
+        <?php include ('form_search.php'); ?>
 
+        <?php if ($this->session->get('pseudo')) { ?>
+
+            <?= $this->session->get('pseudo'); ?>
             <a href="../public/index.php">Accueil</a>
 
-            <?php if($this->session->get('role') === 'admin') { ?>
+            <?php if ($this->session->get('role') === 'admin') { ?>
+
                 <a href="../public/index.php?route=administration">Administration</a>
+
             <?php } ?>
 
             <a href="../public/index.php?route=profile">Profil</a>
             <a href="../public/index.php?route=logout">Déconnexion</a>
 
-        <?php
-        } else {
-        ?>
+        <?php } else { ?>
 
             <a href="../public/index.php">Accueil</a>
             <a href="../public/index.php?route=register">Inscription</a>
             <a href="../public/index.php?route=login">Connexion</a>
 
-        <?php
-        }
-        ?>
+        <?php } ?>
     </div>
 
     <div id="content">

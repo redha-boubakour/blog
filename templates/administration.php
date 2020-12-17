@@ -79,9 +79,9 @@
         <td>Rôle</td>
         <td>Actions</td>
     </tr>
-    <?php
-    foreach ($users as $user)
-    {
+
+    <?php 
+    foreach ($users as $user) { 
     ?>
         <tr>
             <td><?= htmlspecialchars($user->getId());?></td>
@@ -89,20 +89,19 @@
             <td>Créé le : <?= htmlspecialchars($user->getCreatedAt());?></td>
             <td><?= htmlspecialchars($user->getRole());?></td>
             <td>
-                <?php
-                if($user->getRole() != 'admin') {
-                ?>
+                <?php if($user->getRole() != 'admin') { ?>
+
                     <a href="../public/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a>
-                <?php }
-                else {
-                ?>
+
+                <?php } else { ?>
+
                     <p>Suppression impossible (Role : Admin)</p>
-                <?php
-                }
-                ?>
+
+                <?php } ?>
             </td>
         </tr>
-    <?php
+
+    <?php 
     }
     ?>
 </table>
