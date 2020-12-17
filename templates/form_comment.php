@@ -12,3 +12,4 @@ $submit = $route === 'addComment' ? 'Ajouter' : 'Mettre à jour';
 
     <input type="submit" id="submit" name="submit" value="<?= $submit; ?>">
 </form>
+
