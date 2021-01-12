@@ -49,9 +49,12 @@ class FrontController extends Controller
                 $this->commentDAO->addComment($post, $articleId, $this->session->get('id'));
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
                 header('Location: ../public/index.php?route=article&articleId=' . $articleId);
+            } else {
+                header('Location: ../public/index.php?route=article&articleId=' . $articleId);
             }
             $article = $this->articleDAO->getArticle($articleId);
-            $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+            $pagination = $this->pagination->paginate(5, $this->get->get('page'), $this->commentDAO->total($articleId));
+            $comments = $this->commentDAO->getCommentsFromArticle($articleId, $pagination->getLimit(), $pagination->getStart());
             return $this->view->render('single', [
                 'article' => $article,
                 'comments' => $comments,
