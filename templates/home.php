@@ -43,13 +43,17 @@
     </div>
 <?php } ?>
 
-<div class='modal' id='modal'>
-    <div class='content'>
-        <span class="close" id='close'>&times;</span>
+<img src="../public/icons/iconmonstr-info-6-240.png" alt="Important" id="myBtn" width="60" height="60">
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close"></span>
         <div>
-            <h4>Ce blog a été crée en suivant le cours disponible sur le site : <a href="https://codededev.com/cours/creer-son-premier-blog-en-poo-en-php/">Codededev</a></h4><br>
-            <p>Principaux objectifs : Se familiariser avec la POO (programmation orientée objet) en PHP ; Mobiliser le Framework CSS "Bootstrap" ; Se preparer à la phase suivante - l'apprentissage du framework "Symfony".</p>
-            <p>Mohamed Rédha BOUBAKOUR</p>
+            <h4>Ce blog a été crée en suivant le cours disponible sur le site : <a href="https://codededev.com/cours/creer-son-premier-blog-en-poo-en-php/" target="_blank">Codededev</a></h4><br>
+            <p>Créateur : Mohamed Rédha BOUBAKOUR</p>
+            <p>Principaux objectifs : Se familiariser avec la POO (programmation orientée objet) en PHP ; Mobiliser le Framework CSS "Bootstrap" ; Se preparer à la phase suivante - l'apprentissage du framework "Symfony".</p><br>
+            <h4>Compte administrateur : Redha</h4>
+            <h4>Mot de passe : 1234</h4>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ class FrontController extends Controller
 {
     public function home()
     {
-        $pagination = $this->pagination->paginate(5, $this->get->get('page'), $this->articleDAO->total());
+        $pagination = $this->pagination->paginate(4, $this->get->get('page'), $this->articleDAO->total());
         $articles = $this->articleDAO->getArticles($pagination->getLimit(), $this->pagination->getStart());
         return $this->view->render('home', [
             'articles' => $articles,
@@ -31,7 +31,7 @@ class FrontController extends Controller
     {
         if ($this->checkArticleExist($articleId)) {
             $article = $this->articleDAO->getArticle($articleId);
-            $pagination = $this->pagination->paginate(5, $this->get->get('page'), $this->commentDAO->total($articleId));
+            $pagination = $this->pagination->paginate(4, $this->get->get('page'), $this->commentDAO->total($articleId));
             $comments = $this->commentDAO->getCommentsFromArticle($articleId, $pagination->getLimit(), $pagination->getStart());
             return $this->view->render('single', [
                 'article' => $article,
@@ -53,7 +53,7 @@ class FrontController extends Controller
                 header('Location: ../public/index.php?route=article&articleId=' . $articleId);
             }
             $article = $this->articleDAO->getArticle($articleId);
-            $pagination = $this->pagination->paginate(5, $this->get->get('page'), $this->commentDAO->total($articleId));
+            $pagination = $this->pagination->paginate(4, $this->get->get('page'), $this->commentDAO->total($articleId));
             $comments = $this->commentDAO->getCommentsFromArticle($articleId, $pagination->getLimit(), $pagination->getStart());
             return $this->view->render('single', [
                 'article' => $article,
