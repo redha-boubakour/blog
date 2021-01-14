@@ -1,32 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="../public/index.php">Blog</a>
+    <?php if ($this->session->get('pseudo')) { ?>
+            <div class="navbar-brand container-fluid-nav text-center">
+                <?= $this->session->get('pseudo') ?>
+            </div>
+    <?php } ?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="../public/index.php">Accueil</a>
             </li>
 
             <?php if ($this->session->get('pseudo')) { ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="../public/index.php?route=logout">Déconnexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../public/index.php?route=profile">Profil</a>
-                </li>
                 <?php if ($this->session->get('role') === 'admin') { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="../public/index.php?route=administration">Administration</a>
                     </li>
                 <?php } ?>
-            <?php } else { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="../public/index.php?route=register">Inscription</a>
+                    <a class="nav-link" href="../public/index.php?route=profile">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../public/index.php?route=logout">Déconnexion</a>
+                </li>
+            <?php } else { ?>
+                <li class="nav-item">
                     <a class="nav-link" href="../public/index.php?route=login">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../public/index.php?route=register">Inscription</a>
                 </li>
             <?php } ?>
         </ul>

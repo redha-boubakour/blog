@@ -96,7 +96,7 @@ class FrontController extends Controller
         if($post->get('submit')) {
             $result = $this->userDAO->login($post);
             if($result && $result['isPasswordValid']) {
-                $this->session->set('login', 'Bienvenue');
+                $this->session->set('login', 'Bienvenue ' . $post->get('pseudo') . ' !');
                 $this->session->set('id', $result['result']['id']);
                 $this->session->set('role', $result['result']['name']);
                 $this->session->set('pseudo', $post->get('pseudo'));

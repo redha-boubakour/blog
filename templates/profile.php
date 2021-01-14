@@ -1,8 +1,9 @@
 <?php $this->title = 'Mon profil'; ?>
 
+<br><br>
+
 <?= $this->session->show('update_password'); ?>
 <?= $this->session->show('not_admin'); ?>
-
 
 <div>
     <p>Votre pseudo : <?= $this->session->get('pseudo'); ?></p>

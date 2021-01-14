@@ -1,25 +1,73 @@
 #js-form-hide-buttons {
     color: #fff;
 }
+
 .form-check {
     padding-top: 10px;
 }
+
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 textarea.form-control {
     height: 200px;
 }
+
+textarea { 
+    resize: none; 
+}
+
+#post {
+    background-color: #C7CCD1;
+    padding: 10px 25px;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+.modal {
+	position: fixed;
+	z-index: 9999;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 56px 0 0 0;
+    display: none;
+}
+
+.content {
+    width: 50%;
+    border: none;
+    background-color: #fbfdfe;
+	margin: auto;
+	padding: 15px 25px 0 25px;
+	border-radius: 10px;
+	overflow: hidden;
+    text-align: center;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 30px;
+	font-weight: 700
+}
+
+.close:focus,
+.close:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer
+}
+
 @media (min-width: 992px) {
     .form-check {
         padding-top: 0;
     }
 }
+
 @media (min-width: 1200px) {
     .form-check {
         margin-right: 10px;
     }
 }
-textarea { resize: none; }

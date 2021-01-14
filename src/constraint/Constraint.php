@@ -7,7 +7,7 @@ class Constraint
     public function notBlank($name,$value)
     {
         if (empty($value)) {
-            return '<p>Le champ ' . $name . ' saisi est vide.</p>';
+            return '<p>Le champ est vide</p>';
         }
     }
 

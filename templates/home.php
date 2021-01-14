@@ -1,5 +1,7 @@
 <?php $this->title = "Accueil"; ?>
 
+<br><br>
+
 <?php if ($this->session->get('add_comment')) { ?>
     <div class="alert alert-success">    
         <?= $this->session->show('add_comment'); ?>
@@ -41,14 +43,26 @@
     </div>
 <?php } ?>
 
+<div class='modal' id='modal'>
+    <div class='content'>
+        <span class="close" id='close'>&times;</span>
+        <div>
+            <h4>Ce blog a été crée en suivant le cours disponible sur le site : <a href="https://codededev.com/cours/creer-son-premier-blog-en-poo-en-php/">Codededev</a></h4><br>
+            <p>Principaux objectifs : Se familiariser avec la POO (programmation orientée objet) en PHP ; Mobiliser le Framework CSS "Bootstrap" ; Se preparer à la phase suivante - l'apprentissage du framework "Symfony".</p>
+            <p>Mohamed Rédha BOUBAKOUR</p>
+        </div>
+    </div>
+</div>
 
 <?php foreach ($articles as $article) { ?>
-    <div>
+    <div id="post">
         <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h2>
         <p><?= htmlspecialchars($article->getContent());?></p>
         <p><?= htmlspecialchars($article->getAuthor());?></p>
-        <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
-        <a class="btn btn-secondary" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire la suite</a>
+        <div class="flex">
+            <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
+            <a class="btn btn-secondary" href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire la suite</a>
+        </div>
     </div>
 <?php } ?>
 

@@ -1,5 +1,7 @@
 <?php $this->title = "Inscription"; ?>
 
+<br><br>
+
 <div>
     <form method="post" action="../public/index.php?route=register">
         <div class="form-group">
