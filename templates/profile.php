@@ -1,13 +1,22 @@
 <?php $this->title = 'Mon profil'; ?>
 
-<br><br>
+<?php include ('flashes.php'); ?>
 
-<?= $this->session->show('update_password'); ?>
-<?= $this->session->show('not_admin'); ?>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="article" role="tabpanel" aria-labelledby="article-tab">
+        <table class="table table-bordered">
+            <tr>
+                <td>Votre pseudo</td>
+                <td><?= $this->session->get('pseudo'); ?></td>
+            </tr>
+            <tr>
+                <td>Votre ID</td>
+                <td><?= $this->session->get('id'); ?></td>
+            </tr>
+        </table>
+    </div>    
+</div>
 
-<div>
-    <p>Votre pseudo : <?= $this->session->get('pseudo'); ?></p>
-    <p>Votre ID : <?= $this->session->get('id'); ?></p>
-    <a href="../public/index.php?route=updatePassword">Modifier son mot de passe</a><br>
-    <a href="../public/index.php?route=deleteAccount">Supprimer mon compte</a>
+    <a class="btn btn-warning" href="../public/index.php?route=updatePassword">Modifier votre mot de passe</a><br>
+    <a class="btn btn-danger" href="../public/index.php?route=deleteAccount">Supprimer votre compte</a>
 </div>

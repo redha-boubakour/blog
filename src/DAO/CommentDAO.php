@@ -70,6 +70,7 @@ class CommentDAO extends DAO
             $commentId
         ]);
     }
+
     public function unflagComment($commentId)
     {
         $sql = 'UPDATE comment 
@@ -80,6 +81,7 @@ class CommentDAO extends DAO
             $commentId
         ]);
     }
+
     public function deleteComment($commentId)
     {
         $sql = 'DELETE FROM comment 
@@ -88,6 +90,7 @@ class CommentDAO extends DAO
             $commentId
         ]);
     }
+
     public function getFlagComments()
     {
         $sql = 'SELECT comment.id, comment.content, comment.createdAt, comment.flag, user.pseudo

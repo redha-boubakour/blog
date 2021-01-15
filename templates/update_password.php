@@ -1,14 +1,12 @@
 <?php $this->title = 'Modifier mot de passe'; ?>
 
-<br><br>
-
 <div>
-    <p>Ce formulaire vous permet de modifier votre mot de passe.</p>
-    
     <form method="post" action="../public/index.php?route=updatePassword">
-        <label for="password">Mot de passe</label><br>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Mettre à jour" id="submit" name="submit">
+        <div class="form-group">
+            <label for="password">Votre nouveau mot de passe :</label><br>
+            <input class="form-control" type="password" id="password" name="password"><br>
+            <input class="btn btn-success" type="submit" value="Mettre à jour" id="submit" name="submit">
+        </div>
     </form>
 </div>
 <br>

@@ -1,6 +1,6 @@
 <?php $this->title = "Article"; ?>
 
-<br><br>
+<?php include ('flashes.php'); ?>
 
 <div id="post">
     <h2><?= htmlspecialchars($article->getTitle());?></h2>

@@ -1,37 +1,6 @@
 <?php $this->title = 'Administration'; ?>
 
-<?php if ($this->session->get('add_article')) { ?>
-    <div class="alert alert-success">    
-        <?= $this->session->show('add_article'); ?>
-    </div>
-<?php } ?>
-<?php if ($this->session->get('edit_article')) { ?>
-    <div class="alert alert-success">    
-        <?= $this->session->show('edit_article'); ?>
-    </div>
-<?php } ?>
-<?php if ($this->session->get('delete_article')) { ?>
-    <div class="alert alert-success">    
-        <?= $this->session->show('delete_article'); ?>
-    </div>
-<?php } ?>
-<?php if ($this->session->get('unflag_comment')) { ?>
-    <div class="alert alert-success">    
-        <?= $this->session->show('unflag_comment'); ?>
-    </div>
-<?php } ?>
-<?php if ($this->session->get('delete_comment')) { ?>
-    <div class="alert alert-success">    
-        <?= $this->session->show('delete_comment'); ?>
-    </div>
-<?php } ?>
-<?php if ($this->session->get('delete_user')) { ?>
-    <div class="alert alert-success">    
-        <?= $this->session->show('delete_user'); ?>
-    </div>
-<?php } ?>
-
-<br>
+<?php include ('flashes.php'); ?>
 
 <a class="btn btn-success" href="../public/index.php?route=addArticle">Nouvel article</a>
 

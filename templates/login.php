@@ -1,7 +1,5 @@
 <?php $this->title = "Connexion"; ?>
 
-<br><br>
-
 <?php if ($this->session->get('error_login')) { ?>
     <div class="alert alert-danger">    
         <?= $this->session->show('error_login'); ?>

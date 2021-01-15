@@ -1,5 +1,3 @@
-<br><br>
-
 <h1>Articles associés à la recherche : <?= $value; ?></h1>
 
 <?php 

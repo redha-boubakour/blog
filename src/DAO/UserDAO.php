@@ -98,6 +98,11 @@ class UserDAO extends DAO
 
     public function deleteUser($userId)
     {
+        $sql = 'DELETE FROM comment 
+                WHERE user_id = ?';
+        $this->createQuery($sql, [
+            $userId
+        ]);
         $sql = 'DELETE FROM user 
                 WHERE id = ?';
         $this->createQuery($sql, [
